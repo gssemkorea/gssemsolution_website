@@ -6,7 +6,7 @@
 <title>GSSEM SOLUTION | Titanium bone fixation systems, Seoul</title>
 <meta name="description" content="GSSEM Solution designs and machines titanium fixation systems for craniomaxillofacial, neuro and orthodontic surgery in Seoul, Korea: Osteo-Fit CMF System, Osteo-Fit Anchor System, dedicated instruments and trays.">
 <!-- 시안 단계: 검색엔진 노출 방지. 정식 오픈 시 아래 줄을 지운다. -->
-<!-- 개념 사진은 Pexels 무료 라이선스 사진을 외부 링크로 쓴다(ID 3913017, 8956445, 7585320, 37121460, 33514502, 10406128, 13949979, 8940820, 39839908, 24022931, 27102114, 28727570, 33175650). 정식 오픈 전 자사 촬영본으로 교체하거나 내려받아 자체 호스팅한다. frame_*.jpg는 회사 폴더의 스톡 영상 정지 화면. -->
+<!-- 개념 사진은 Pexels 무료 라이선스 사진을 외부 링크로 쓴다(ID 3913017, 8956445, 7585320, 37121460, 33514502, 10406128, 13949979, 8940820, 8865189, 24022931, 7480233, 3735930, 33175650). 정식 오픈 전 자사 촬영본으로 교체하거나 내려받아 자체 호스팅한다. frame_*.jpg는 회사 폴더의 스톡 영상 정지 화면. -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0A1522">
 <link rel="icon" type="image/png" href="assets/img/logo_new.png">
@@ -145,7 +145,7 @@
   .cards.five .card .body h3 { font-size: 15.5px; }
   .cards.five .card .body p { font-size: 13.5px; }
   @media (max-width: 980px) { .cards.five { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 640px) { .cards.five { grid-template-columns: 1fr 1fr; gap: 10px; } .cards.five .card .body { padding: 12px 14px 16px; } }
+  @media (max-width: 640px) { .cards.five { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 0 -20px; padding: 2px 20px 10px; scrollbar-width: thin; } .cards.five .card { flex: 0 0 74%; scroll-snap-align: start; } .cards.five .card .body { padding: 12px 14px 16px; } }
   .lineup { padding-top: 0; }
   .lineup .card .img { aspect-ratio: 1 / 1; }
   .lineup .card .img img { inset: 14%; width: 72%; height: 72%; }
@@ -174,12 +174,17 @@
 
   /* ---------- technology (T7): process as five photo cards ---------- */
   .process .n { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
-  .tech .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
-  .tech .principle { padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--r-card); background: var(--surface); min-width: 0; }
+  /* video band: driver picking a screw, principles on a glass panel at the left */
+  .tech .band-video { position: relative; margin-top: 18px; border-radius: var(--r-img); overflow: hidden; min-height: 470px; display: flex; align-items: center; background: var(--surface-2); }
+  .tech .band-video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .tech .band-video::before { content: ""; position: absolute; inset: 0; background: var(--hero-overlay); }
+  .tech .principles { position: relative; z-index: 1; margin: 36px; max-width: 560px; background: var(--glass); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid var(--line-strong); border-radius: var(--r-card); padding: 6px 26px; }
+  .tech .principle { padding: 18px 0; border-top: 1px solid var(--line); min-width: 0; }
+  .tech .principle:first-child { border-top: 0; }
   .tech .principle h3 { font-size: 16.5px; }
   .tech .principle p { color: var(--muted); font-size: 14.5px; margin-top: 8px; }
   .tech .equip-head { margin: 36px 0 12px; font-size: 13px; color: var(--muted); }
-  @media (max-width: 980px) { .tech .principles { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) { .tech .band-video { min-height: 0; } .tech .principles { margin: 16px; max-width: none; padding: 4px 18px; } }
 
   /* ---------- certifications (T8) ---------- */
   .certs .list { border-top: 1px solid var(--line-strong); }
@@ -212,13 +217,6 @@
   .group .wordmark { font-weight: 700; font-size: 20px; letter-spacing: -0.01em; line-height: 1.2; }
   .group .card .body h3 { font-size: 15px; color: var(--muted); font-weight: 500; margin-top: -4px; }
 
-  /* ---------- CTA band (T12) ---------- */
-  .band { padding: 0 0 112px; }
-  .band .in { background: var(--band); color: var(--band-fg); border-radius: var(--r-card); padding: 40px 44px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-  .band h2 { font-size: clamp(22px, 2.6vw, 30px); color: var(--band-fg); }
-  .band p { color: var(--band-fg); opacity: .8; margin-top: 8px; }
-  .band .btn { background: var(--band-btn-bg); color: var(--band-btn-fg); }
-  @media (max-width: 760px) { .band { padding-bottom: 64px; } .band .in { padding: 28px 24px; } }
 
   /* ---------- contact + footer (T13) ---------- */
   .contact { padding-top: 0; }
@@ -231,7 +229,28 @@
   .contact .pills { margin-top: 22px; }
   .contact .channels { margin-top: 26px; padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--r-card); background: var(--surface); font-size: 14.5px; color: var(--muted); }
   .contact .channels b { color: var(--text); display: block; margin-bottom: 6px; }
-  .contact .map { border: 1px solid var(--line); border-radius: var(--r-card); overflow: hidden; background: var(--surface); aspect-ratio: 4 / 3; }
+  .contact .map { border: 1px solid var(--line); border-radius: var(--r-card); overflow: hidden; background: var(--surface); aspect-ratio: 16 / 10; margin-top: 22px; }
+  /* inquiry form: opens the visitor's email app, nothing is stored here */
+  .form { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); padding: 26px 26px 24px; display: grid; gap: 14px; }
+  .form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form label { display: grid; gap: 6px; font-size: 13.5px; color: var(--muted); }
+  .form input, .form select, .form textarea { width: 100%; font: inherit; font-size: 15px; color: var(--text); background: var(--bg); border: 1px solid var(--line-strong); border-radius: 10px; padding: 11px 12px; }
+  .form select { appearance: auto; }
+  .form textarea { min-height: 120px; resize: vertical; }
+  .form .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; }
+  .form .consent input { width: auto; margin-top: 3px; }
+  .form .consent a { text-decoration: underline; text-underline-offset: 3px; color: var(--text); }
+  .form .actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 4px; }
+  .form .hint { font-size: 12.5px; color: var(--muted); max-width: 36ch; }
+  @media (max-width: 640px) { .form .row2 { grid-template-columns: 1fr; } .form { padding: 20px 18px; } }
+  /* digital catalog viewer */
+  .modal { border: 1px solid var(--line-strong); border-radius: var(--r-card); padding: 0; width: min(1100px, 94vw); height: min(880px, 90vh); background: var(--bg); color: var(--text); }
+  .modal::backdrop { background: rgba(5,12,20,.72); }
+  .modal .head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px 12px 16px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+  .modal .tabs, .modal .tools { display: flex; gap: 8px; flex-wrap: wrap; }
+  .modal .tabs button[aria-selected="true"] { background: var(--btn-bg); color: var(--btn-fg); border-color: transparent; }
+  .modal .body { height: calc(100% - 63px); }
+  .modal iframe { width: 100%; height: 100%; border: 0; background: #3A3F44; }
   .contact .map iframe { width: 100%; height: 100%; border: 0; }
   :root[data-theme="dark"] .contact .map iframe { filter: grayscale(.2) brightness(.92); }
   @media (max-width: 900px) { .contact .grid { grid-template-columns: 1fr; } }
@@ -268,7 +287,7 @@
     <div class="controls">
       <button class="switch lang" id="langBtn" type="button" aria-label="Switch language"><span class="ko">EN</span><span class="en">한국어</span></button>
       <button class="switch theme" id="themeBtn" type="button" aria-pressed="true" aria-label="Switch theme"><span class="ko"><span class="t-dark">다크</span><span class="t-light">라이트</span></span><span class="en"><span class="t-dark">Dark</span><span class="t-light">Light</span></span><i class="knob" aria-hidden="true"></i></button>
-      <a class="btn primary sm cta" href="catalog.html"><span class="ko">카탈로그</span><span class="en">Catalogs</span></a>
+      <a class="btn primary sm cta" href="catalog.html" data-catalog="cmf"><span class="ko">카탈로그</span><span class="en">Catalogs</span></a>
       <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><span class="ms" aria-hidden="true" style="font-size:22px">menu</span></button>
     </div>
   </div>
@@ -277,7 +296,7 @@
 <main id="main">
   <!-- T1 Hero: full-bleed video -->
   <section class="hero" id="top">
-    <video class="hero-video" id="heroVideo" muted loop playsinline preload="metadata" poster="assets/video/video_tray_poster.jpg" aria-hidden="true">
+    <video class="hero-video" id="heroVideo" data-autoplay muted loop playsinline preload="metadata" poster="assets/video/video_tray_poster.jpg" aria-hidden="true">
       <source src="assets/video/video_tray.mp4" type="video/mp4">
     </video>
     <div class="container">
@@ -293,7 +312,7 @@
           <span class="en">We design and machine titanium fixation systems for craniomaxillofacial, neuro and orthodontic surgery. Together with GSSEM Korea, our in-house line covers design, CNC machining, cleaning, inspection and packaging under one roof.</span>
         </p>
         <div class="ctas">
-          <a class="btn primary" href="catalog.html"><span class="ko">카탈로그 다운로드</span><span class="en">Download catalogs</span></a>
+          <a class="btn primary" href="catalog.html" data-catalog="cmf"><span class="ko">카탈로그 보기</span><span class="en">View catalogs</span></a>
           <a class="btn ghost" href="mailto:info@gssems.kr"><span class="ko">이메일 문의</span><span class="en">Email us</span></a>
         </div>
       </div>
@@ -333,7 +352,7 @@
       </div>
       <div class="cards">
         <div class="card reveal">
-          <div class="img photo"><img src="https://images.pexels.com/photos/39839908/pexels-photo-39839908/free-photo-of-factory-worker-operating-machining-equipment-indoors.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Machinist operating equipment" loading="lazy" referrerpolicy="no-referrer"></div>
+          <div class="img photo"><img src="https://images.pexels.com/photos/8865189/pexels-photo-8865189.jpeg?auto=compress&cs=tinysrgb&w=900" alt="High-precision milling machine cutting metal" loading="lazy" referrerpolicy="no-referrer"></div>
           <div class="body">
           <h3><span class="ko">직접 만듭니다</span><span class="en">We manufacture excellence</span></h3>
           <p><span class="ko">유통사가 아니라 제조사입니다. 고정밀 임플란트 전용 CNC 가공 설비를 사내에서 운영하고, 설계부터 생산까지 글로벌 기준에 맞춰 직접 만듭니다.</span><span class="en">GSSEM is a dedicated manufacturer, not a trading company. We operate in-house CNC machining centers specialized in high-precision medical implants and engineer every product in strict accordance with global standards.</span></p>
@@ -416,7 +435,7 @@
             <h3>Osteo-Fit CMF System</h3>
             <p><span class="ko">Micro·Mid·Mini·Maxi 플레이트와 스크류를 하나의 트레이에 구성했습니다. Standard와 Self-drilling 스크류, 0.6~1.0 mm 두께의 플레이트, Boss·Chin·Prebent 특수 플레이트를 갖추고 있습니다.</span><span class="en">Micro, Mid, Mini and Maxi plates and screws in one compact tray. Standard and self-drilling screws, 0.6–1.0 mm plates, plus Boss, Chin and pre-bent options.</span></p>
             <div class="pills"><span class="pill">Ø1.2</span><span class="pill">Ø1.6</span><span class="pill">Ø2.0</span><span class="pill">Ø2.4 mm</span><span class="pill">0.6–1.0 t</span></div>
-            <a class="link" href="assets/docs/GSSEM_CMF_Fixation_System_Catalogue_2026.pdf"><span class="ko">CMF 카탈로그 PDF</span><span class="en">CMF catalog PDF</span><span class="ms" aria-hidden="true">open_in_new</span></a>
+            <a class="link" href="assets/docs/GSSEM_CMF_Fixation_System_Catalogue_2026.pdf" data-catalog="cmf"><span class="ko">CMF 카탈로그 PDF</span><span class="en">CMF catalog PDF</span><span class="ms" aria-hidden="true">open_in_new</span></a>
           </div>
         </article>
         <article class="card reveal">
@@ -425,7 +444,7 @@
             <h3>Osteo-Fit Anchor System</h3>
             <p><span class="ko">GS I~IV 네 가지 헤드 타입, 직경 1.2~2.2 mm, 길이 6~12 mm. 둥근 육각 헤드와 자가 탭핑 나사산으로 쉽게 식립하고 단단히 고정합니다. 앵커 플레이트(직선·90°·145°)와 오거나이저 키트를 함께 구성합니다.</span><span class="en">Four head types GS I–IV, Ø1.2–2.2 mm, 6–12 mm lengths. Rounded hexagonal head and self-tapping thread for easy insertion and firm hold. Anchor plates (straight, 90°, 145°) and organizer kits.</span></p>
             <div class="pills"><span class="pill">GS I–IV</span><span class="pill">Ø1.2–2.2 mm</span><span class="pill">6–12 mm</span></div>
-            <a class="link" href="assets/docs/GSSEM_Orthodontic_Anchor_System_Catalog.pdf"><span class="ko">교정용 카탈로그 PDF</span><span class="en">Orthodontic catalog PDF</span><span class="ms" aria-hidden="true">open_in_new</span></a>
+            <a class="link" href="assets/docs/GSSEM_Orthodontic_Anchor_System_Catalog.pdf" data-catalog="ortho"><span class="ko">교정용 카탈로그 PDF</span><span class="en">Orthodontic catalog PDF</span><span class="ms" aria-hidden="true">open_in_new</span></a>
           </div>
         </article>
         <article class="card reveal">
@@ -434,7 +453,7 @@
             <h3>Instruments &amp; Tray</h3>
             <p><span class="ko">드라이버 핸들, 플레이트 벤더, 커터, 깊이 게이지, 오거나이저 블록, 오토클레이브 트레이를 자체 설계·제작합니다. 병원과 술자의 사용 패턴에 맞춰 트레이 구성을 바꿀 수 있습니다.</span><span class="en">Driver handles, plate benders, cutters, depth gauges, organizer blocks and autoclave trays, designed and made in-house. Tray contents can be configured for each hospital and surgeon.</span></p>
             <div class="pills"><span class="pill">222-xxxx</span><span class="pill"><span class="ko">병원별 구성</span><span class="en">per hospital</span></span></div>
-            <a class="link" href="assets/docs/GSSEM_CMF_Fixation_System_Catalogue_2026.pdf"><span class="ko">기구 목록(CMF 카탈로그)</span><span class="en">Instrument list (CMF catalog)</span><span class="ms" aria-hidden="true">open_in_new</span></a>
+            <a class="link" href="assets/docs/GSSEM_CMF_Fixation_System_Catalogue_2026.pdf" data-catalog="cmf"><span class="ko">기구 목록(CMF 카탈로그)</span><span class="en">Instrument list (CMF catalog)</span><span class="ms" aria-hidden="true">open_in_new</span></a>
           </div>
         </article>
       </div>
@@ -518,19 +537,22 @@
           <div class="body"><div class="n">05</div><h3><span class="ko">포장·출고</span><span class="en">Packaging &amp; dispatch</span></h3><p><span class="ko">크린룸 포장, 비멸균 공급</span><span class="en">Clean-room packing, non-sterile supply</span></p></div>
         </article>
       </div>
+      <div class="band-video reveal">
+        <video data-autoplay muted loop playsinline preload="metadata" poster="assets/video/video_driver_poster.jpg" aria-hidden="true"><source src="assets/video/video_driver.mp4" type="video/mp4"></video>
       <div class="principles">
-        <div class="principle reveal">
+        <div class="principle">
           <h3>Enhanced Engagement</h3>
           <p><span class="ko">스크류와 드라이버 샤프트 사이의 공차를 최소화해 흔들림 없이 체결됩니다. 드라이버만 꽂아도 스크류가 안정적으로 고착되는 Pick-up 성능.</span><span class="en">Minimal tolerance between screw and driver shaft gives a wobble-free engagement and reliable pick-up on the shaft.</span></p>
         </div>
-        <div class="principle reveal">
+        <div class="principle">
           <h3>Anatomical Precision</h3>
           <p><span class="ko">1 mm 단위로 늘어나는 Free-bending L-type 플레이트, 식립 후 이물감을 줄이는 Low Profile 설계, 하악 수술을 위한 수직 조절형 Boss Plate.</span><span class="en">Free-bending L-type plates in 1 mm increments, low-profile design to reduce palpability, and vertically adjustable Boss plates for mandibular work.</span></p>
         </div>
-        <div class="principle reveal">
+        <div class="principle">
           <h3>Ultimate Stability</h3>
           <p><span class="ko">드라이버 회전력을 손실 없이 전달하는 헤드 설계와 골 접촉 면적을 키운 나사산으로 골유합 기간 동안 초기 고정력을 유지합니다.</span><span class="en">Head geometry that transfers torque without loss and thread design with larger bone contact maintain initial fixation through healing.</span></p>
         </div>
+      </div>
       </div>
       <p class="equip-head reveal"><span class="ko">주요 설비</span><span class="en">Key equipment</span></p>
       <div class="pills reveal" aria-label="Key equipment">
@@ -638,13 +660,13 @@
       </div>
       <div class="cards">
         <div class="card reveal">
-          <div class="img photo"><img src="https://images.pexels.com/photos/27102114/pexels-photo-27102114/free-photo-of-a-man-is-working-on-a-machine-in-a-factory.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Engineer at a machine on the factory floor" loading="lazy" referrerpolicy="no-referrer"></div>
+          <div class="img photo"><img src="https://images.pexels.com/photos/7480233/pexels-photo-7480233.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Hand adjusting a CNC spindle" loading="lazy" referrerpolicy="no-referrer"></div>
           <div class="body">
           <h3><span class="ko">진짜 제조사</span><span class="en">A true manufacturer</span></h3>
           <p><span class="ko">직접 설계하고 가공하고 검사하기 때문에 제품 일관성, 빠른 커스터마이징, 예측 가능한 납기, 엔지니어의 즉각적인 기술 지원을 받을 수 있습니다.</span><span class="en">Because we engineer, manufacture and inspect every product ourselves, distributors receive higher consistency, faster customization, predictable timelines and immediate engineering support.</span></p>
         </div></div>
         <div class="card reveal">
-          <div class="img photo"><img src="https://images.pexels.com/photos/28727570/pexels-photo-28727570/free-photo-of-sterile-surgical-instruments-prepared-in-operating-room.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Surgical instruments prepared on a drape" loading="lazy" referrerpolicy="no-referrer"></div>
+          <div class="img photo"><img src="https://images.pexels.com/photos/3735930/pexels-photo-3735930.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Stacked cargo containers at a port" loading="lazy" referrerpolicy="no-referrer"></div>
           <div class="body">
           <h3><span class="ko">원스톱 유통 포트폴리오</span><span class="en">Complete portfolio for one-stop distribution</span></h3>
           <p><span class="ko">CMF(Orbital·Zygoma·Midface·Mandible·Reconstruction), Neuro, 치과·교정 고정 시스템을 한 번에. 여러 공급사를 관리하지 않아도 시장을 넓힐 수 있습니다.</span><span class="en">CMF (orbital, zygoma, midface, mandible, reconstruction), neuro and dental/orthodontic fixation in one line. Expand coverage without managing multiple suppliers.</span></p>
@@ -689,27 +711,42 @@
     </div>
   </section>
 
-  <!-- T12 CTA band -->
-  <section class="band" aria-label="Contact">
-    <div class="container">
-      <div class="in reveal">
-        <div>
-          <h2><span class="ko">카탈로그와 견적을 요청하세요</span><span class="en">Request catalogs and a quotation</span></h2>
-          <p><span class="ko">info@gssems.kr, 평일 09:00–18:00 (KST). 국문과 영문 모두 응대합니다.</span><span class="en">info@gssems.kr, weekdays 09:00–18:00 KST. We answer in Korean and English.</span></p>
-        </div>
-        <a class="btn" href="mailto:info@gssems.kr?subject=Catalog%20and%20quotation%20request"><span class="ms" aria-hidden="true" style="font-size:20px;color:inherit">mail</span><span class="ko">메일 보내기</span><span class="en">Send an email</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- T13 Contact -->
+  <!-- T13 Contact: inquiry form + details + map -->
   <section class="contact" id="contact">
     <div class="container">
       <div class="sec-head reveal">
         <p class="eyebrow"><span class="ko">문의·오시는 길</span><span class="en">Contact &amp; location</span></p>
-        <h2><span class="ko">서울 구로디지털단지에 있습니다</span><span class="en">Find us in Guro Digital Complex, Seoul</span></h2>
+        <h2><span class="ko">카탈로그와 견적을 요청하세요</span><span class="en">Request catalogs and a quotation</span></h2>
+        <p class="lead"><span class="ko">info@gssems.kr, 평일 09:00–18:00 (KST). 국문과 영문 모두 응대합니다. 서울 구로디지털단지에 있습니다.</span><span class="en">info@gssems.kr, weekdays 09:00–18:00 KST. We answer in Korean and English. Find us in Guro Digital Complex, Seoul.</span></p>
       </div>
       <div class="grid">
+        <form class="form reveal" id="contactForm" novalidate>
+          <div class="row2">
+            <label><span><span class="ko">이름</span><span class="en">Name</span></span><input name="name" type="text" required autocomplete="name"></label>
+            <label><span><span class="ko">회사·병원</span><span class="en">Company / hospital</span></span><input name="company" type="text" autocomplete="organization"></label>
+          </div>
+          <div class="row2">
+            <label><span><span class="ko">이메일</span><span class="en">Email</span></span><input name="email" type="email" required autocomplete="email"></label>
+            <label><span><span class="ko">국가</span><span class="en">Country</span></span><input name="country" type="text" autocomplete="country-name"></label>
+          </div>
+          <label><span><span class="ko">관심 제품</span><span class="en">Product of interest</span></span>
+            <select name="product">
+              <option value="" data-ko="선택" data-en="Select">Select</option>
+              <option value="Osteo-Fit CMF System">Osteo-Fit CMF System</option>
+              <option value="Osteo-Neuro Fixation System">Osteo-Neuro Fixation System</option>
+              <option value="Osteo-Fit Anchor System">Osteo-Fit Anchor System</option>
+              <option value="Dental &amp; GBR System">Dental &amp; GBR System</option>
+              <option value="Instruments &amp; Custom Tray" data-ko="기구·맞춤 트레이" data-en="Instruments &amp; Custom Tray">Instruments &amp; Custom Tray</option>
+              <option value="OEM / Private Label" data-ko="OEM / 자사 브랜드 생산" data-en="OEM / Private Label">OEM / Private Label</option>
+            </select>
+          </label>
+          <label><span><span class="ko">문의 내용</span><span class="en">Message</span></span><textarea name="message" required></textarea></label>
+          <label class="consent"><input name="consent" type="checkbox" required><span><span class="ko">문의 답변을 위해 이름, 회사, 이메일, 문의 내용을 수집·이용하는 데 동의합니다. <a href="privacy.html">개인정보처리방침</a></span><span class="en">I agree that my name, company, email and message are used to answer this inquiry. <a href="privacy.html">Privacy policy</a></span></span></label>
+          <div class="actions">
+            <button class="btn primary" type="submit"><span class="ms" aria-hidden="true" style="font-size:20px;color:inherit">mail</span><span class="ko">메일 보내기</span><span class="en">Send email</span></button>
+            <span class="hint"><span class="ko">메일 앱이 열리며 내용이 채워집니다. 이 사이트에는 아무것도 저장되지 않습니다.</span><span class="en">Opens your email app with the message filled in. Nothing is stored on this site.</span></span>
+          </div>
+        </form>
         <div class="reveal">
           <dl>
             <dt><span class="ms" aria-hidden="true">location_on</span><span class="ko">주소</span><span class="en">Address</span></dt>
@@ -728,19 +765,35 @@
             <a class="btn ghost sm" href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B5%AC%EB%A1%9C%EA%B5%AC%20%EB%94%94%EC%A7%80%ED%84%B8%EB%A1%9C27%EA%B8%B8%2024" target="_blank" rel="noopener"><span class="ko">네이버 지도</span><span class="en">Naver Map</span></a>
             <a class="btn ghost sm" href="https://map.kakao.com/?q=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B5%AC%EB%A1%9C%EA%B5%AC%20%EB%94%94%EC%A7%80%ED%84%B8%EB%A1%9C27%EA%B8%B8%2024" target="_blank" rel="noopener"><span class="ko">카카오맵</span><span class="en">Kakao Map</span></a>
           </div>
+          <div class="map">
+          <iframe title="GSSEM SOLUTION location (Google Maps)" src="https://maps.google.com/maps?q=24%20Digital-ro%2027-gil%2C%20Guro-gu%2C%20Seoul%2C%20Korea&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
           <div class="channels">
             <b><span class="ko">해외 파트너 문의 채널</span><span class="en">Channels for overseas partners</span></b>
             <span class="ko">WhatsApp, WeChat, Zalo, 카카오톡 채널로도 문의할 수 있습니다. QR 코드는 카탈로그 뒷면에 있습니다. 가장 빠른 창구는 이메일 info@gssems.kr 입니다.</span>
             <span class="en">We are also reachable on WhatsApp, WeChat, Zalo and KakaoTalk. QR codes are printed on the back of our catalogs. The fastest channel is email: info@gssems.kr.</span>
           </div>
         </div>
-        <div class="map reveal">
-          <iframe title="GSSEM SOLUTION location (Google Maps)" src="https://maps.google.com/maps?q=24%20Digital-ro%2027-gil%2C%20Guro-gu%2C%20Seoul%2C%20Korea&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-        </div>
       </div>
     </div>
   </section>
 </main>
+
+<dialog class="modal" id="catalogModal" aria-label="Digital catalog">
+  <div class="head">
+    <div class="tabs" role="tablist">
+      <button type="button" class="btn ghost sm" role="tab" data-tab="cmf" aria-selected="true">CMF System 2026</button>
+      <button type="button" class="btn ghost sm" role="tab" data-tab="ortho" aria-selected="false">Orthodontic Anchor</button>
+      <button type="button" class="btn ghost sm" role="tab" data-tab="portfolio" aria-selected="false">Partnership Portfolio</button>
+    </div>
+    <div class="tools">
+      <a class="btn ghost sm" id="catalogNewTab" href="catalog.html" target="_blank" rel="noopener"><span class="ko">새 창</span><span class="en">New tab</span></a>
+      <a class="btn ghost sm" id="catalogDownload" href="catalog.html" download><span class="ko">다운로드</span><span class="en">Download</span></a>
+      <button type="button" class="btn primary sm" data-close><span class="ko">닫기</span><span class="en">Close</span></button>
+    </div>
+  </div>
+  <div class="body"><iframe id="catalogFrame" title="Catalog PDF" src="about:blank"></iframe></div>
+</dialog>
 
 <footer class="site-footer">
   <div class="container">
@@ -793,7 +846,7 @@
 
   /* language: ko by default */
   var langBtn = document.getElementById('langBtn');
-  function applyLang(l) { root.setAttribute('data-lang', l); root.setAttribute('lang', l); document.title = l === 'en' ? 'GSSEM SOLUTION | Titanium bone fixation systems, Seoul' : '지셈솔루션 GSSEM SOLUTION | 티타늄 골 고정 시스템 제조'; }
+  function applyLang(l) { root.setAttribute('data-lang', l); root.setAttribute('lang', l); document.querySelectorAll('[data-ko][data-en]').forEach(function (el) { el.textContent = el.getAttribute('data-' + l); }); document.title = l === 'en' ? 'GSSEM SOLUTION | Titanium bone fixation systems, Seoul' : '지셈솔루션 GSSEM SOLUTION | 티타늄 골 고정 시스템 제조'; }
   applyLang(store.get('gssem-lang') || 'en');
   langBtn.addEventListener('click', function () { var next = root.getAttribute('data-lang') === 'ko' ? 'en' : 'ko'; applyLang(next); store.set('gssem-lang', next); });
 
@@ -806,12 +859,44 @@
   var conn = navigator.connection || {};
   var smallScreen = window.matchMedia('(max-width: 760px)').matches;
 
-  /* hero video: plays only on desktop, not with reduced motion or save-data; poster otherwise */
-  var hv = document.getElementById('heroVideo');
-  if (hv && !(reduce || conn.saveData === true || smallScreen)) {
-    hv.play().catch(function () {});
-    document.addEventListener('visibilitychange', function () { if (document.hidden) hv.pause(); else hv.play().catch(function () {}); });
+  /* autoplay videos (hero, technology band): desktop only, not with reduced motion or save-data; poster otherwise */
+  var noVideo = reduce || conn.saveData === true || smallScreen;
+  var vids = Array.prototype.slice.call(document.querySelectorAll('video[data-autoplay]'));
+  if (!noVideo) {
+    document.addEventListener('visibilitychange', function () { vids.forEach(function (v) { if (document.hidden) v.pause(); else if (v.dataset.inView === '1') v.play().catch(function () {}); }); });
   }
+
+  /* digital catalog viewer: PDF in a dialog; small screens open the PDF directly */
+  var catalogs = { cmf: 'assets/docs/GSSEM_CMF_Fixation_System_Catalogue_2026.pdf', ortho: 'assets/docs/GSSEM_Orthodontic_Anchor_System_Catalog.pdf', portfolio: 'assets/docs/GSSEM_Global_Partnership_Portfolio_2025.pdf' };
+  var modal = document.getElementById('catalogModal'), frame = document.getElementById('catalogFrame');
+  var tabs = Array.prototype.slice.call(modal.querySelectorAll('[data-tab]'));
+  function selectCatalog(key) {
+    tabs.forEach(function (b) { b.setAttribute('aria-selected', b.getAttribute('data-tab') === key ? 'true' : 'false'); });
+    frame.src = catalogs[key] + '#toolbar=1&view=FitH';
+    document.getElementById('catalogDownload').href = catalogs[key];
+    document.getElementById('catalogNewTab').href = catalogs[key];
+  }
+  function openCatalog(key) {
+    if (!modal || typeof modal.showModal !== 'function' || smallScreen) { window.open(catalogs[key], '_blank', 'noopener'); return; }
+    selectCatalog(key); modal.showModal();
+  }
+  document.querySelectorAll('[data-catalog]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); openCatalog(a.getAttribute('data-catalog')); }); });
+  tabs.forEach(function (b) { b.addEventListener('click', function () { selectCatalog(b.getAttribute('data-tab')); }); });
+  modal.querySelector('[data-close]').addEventListener('click', function () { modal.close(); });
+  modal.addEventListener('click', function (e) { if (e.target === modal) modal.close(); });
+  modal.addEventListener('close', function () { frame.src = 'about:blank'; });
+
+  /* inquiry form: builds a mailto link and opens the visitor's email app */
+  var cf = document.getElementById('contactForm');
+  function buildMailto() {
+    var f = new FormData(cf), ko = root.getAttribute('data-lang') === 'ko';
+    var g = function (k) { return (f.get(k) || '').toString().trim(); };
+    var subject = (ko ? '[홈페이지 문의] ' : '[Website inquiry] ') + g('name') + (g('company') ? ' / ' + g('company') : '');
+    var body = [(ko ? '이름' : 'Name') + ': ' + g('name'), (ko ? '회사·병원' : 'Company / hospital') + ': ' + g('company'), 'Email: ' + g('email'), (ko ? '국가' : 'Country') + ': ' + g('country'), (ko ? '관심 제품' : 'Product of interest') + ': ' + g('product'), '', g('message')].join('\n');
+    return 'mailto:info@gssems.kr?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
+  window.gssemBuildMailto = buildMailto;
+  if (cf) cf.addEventListener('submit', function (e) { e.preventDefault(); if (!cf.checkValidity()) { cf.reportValidity(); return; } window.location.href = buildMailto(); });
 
   if ('IntersectionObserver' in window) {
     /* active nav link */
@@ -822,8 +907,8 @@
     }, { rootMargin: '-40% 0px -55% 0px' });
     targets.forEach(function (t) { navObs.observe(t); });
 
-    /* hero video pauses when scrolled away */
-    if (hv) { var hvObs = new IntersectionObserver(function (entries) { entries.forEach(function (en) { if (!hv.paused && !en.isIntersecting) hv.pause(); else if (en.isIntersecting && !(reduce || smallScreen)) hv.play().catch(function () {}); }); }, { threshold: 0.1 }); hvObs.observe(hv); }
+    /* autoplay videos play only while in view */
+    if (vids.length && !noVideo) { var vObs = new IntersectionObserver(function (entries) { entries.forEach(function (en) { var v = en.target; v.dataset.inView = en.isIntersecting ? '1' : '0'; if (en.isIntersecting) v.play().catch(function () {}); else v.pause(); }); }, { threshold: 0.15 }); vids.forEach(function (v) { vObs.observe(v); }); }
 
     /* reveal once */
     var revealEls = document.querySelectorAll('.reveal');
