@@ -6,7 +6,7 @@
 <title>GSSEM SOLUTION | Titanium bone fixation systems, Seoul</title>
 <meta name="description" content="GSSEM Solution designs and machines titanium fixation systems for craniomaxillofacial, neuro and orthodontic surgery in Seoul, Korea: Osteo-Fit CMF System, Osteo-Fit Anchor System, dedicated instruments and trays.">
 <!-- 시안 단계: 검색엔진 노출 방지. 정식 오픈 시 아래 줄을 지운다. -->
-<!-- 개념 사진은 Pexels 무료 라이선스 사진을 외부 링크로 쓴다(ID 3913017, 8956445, 7585320, 37121460, 33514502, 10406128, 13949979, 8940820, 8865189, 24022931, 7480233, 3735930, 33175650). 정식 오픈 전 자사 촬영본으로 교체하거나 내려받아 자체 호스팅한다. frame_*.jpg는 회사 폴더의 스톡 영상 정지 화면. -->
+<!-- 개념 사진은 Pexels 무료 라이선스 사진을 외부 링크로 쓴다(ID 3913017, 8956445, 7585320, 37121460, 33514502, 10406128, 13949979, 8940820, 8865189, 24022931, 7480233, 3735930, 33175650). 정식 오픈 전 자사 촬영본으로 교체하거나 내려받아 자체 호스팅한다. frame_*.jpg는 회사 폴더의 스톡 영상 정지 화면. bg_why/bg_certs/bg_global/card_handover는 대표가 전달한 수술실 사진(출처·라이선스 미확인, 공개 전 정식 스톡으로 교체). -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0A1522">
 <link rel="icon" type="image/png" href="assets/img/logo_new.png">
@@ -24,6 +24,8 @@
     --hero-overlay: linear-gradient(90deg, rgba(10,21,34,.94) 0%, rgba(10,21,34,.74) 48%, rgba(10,21,34,.38) 100%);
     --band: linear-gradient(100deg, #1C4464, #0F2A44); --band-fg: #FFFFFF; --band-btn-bg: #F4F7FA; --band-btn-fg: #0A1522;
     --header-bg: rgba(10,21,34,.82);
+    --bg-overlay: rgba(10,21,34,.82);
+    --bg-overlay-side: linear-gradient(90deg, rgba(10,21,34,.95) 0%, rgba(10,21,34,.84) 55%, rgba(10,21,34,.55) 100%);
     --img-bg: rgba(255,255,255,.04); --shadow: rgba(0,0,0,.5);
     --r-card: 14px; --r-img: 18px; --r-btn: 999px;
     --container: 1200px;
@@ -38,6 +40,8 @@
     --hero-overlay: linear-gradient(90deg, rgba(245,247,250,.96) 0%, rgba(245,247,250,.84) 48%, rgba(245,247,250,.55) 100%);
     --band: #1C4464; --band-fg: #FFFFFF; --band-btn-bg: #FFFFFF; --band-btn-fg: #1C4464;
     --header-bg: rgba(245,247,250,.86);
+    --bg-overlay: rgba(245,247,250,.86);
+    --bg-overlay-side: linear-gradient(90deg, rgba(245,247,250,.97) 0%, rgba(245,247,250,.88) 55%, rgba(245,247,250,.66) 100%);
     --img-bg: #FFFFFF; --shadow: rgba(20,33,46,.2);
   }
 
@@ -261,6 +265,15 @@
   .site-footer .legal span + span::before { content: "|"; margin: 0 10px; opacity: .4; }
   .site-footer .family a { margin-right: 14px; }
 
+  /* ---------- full-section photo backgrounds (why, certs, global) ---------- */
+  .has-bg { position: relative; isolation: isolate; }
+  .has-bg .bg-media { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+  .has-bg .bg-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .has-bg .bg-media::after { content: ""; position: absolute; inset: 0; background: var(--bg-overlay); }
+  .has-bg.global .bg-media::after { background: var(--bg-overlay-side); }
+  .has-bg .card, .has-bg .oem { background: var(--glass); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-color: var(--line-strong); }
+  .has-bg .card:hover { border-color: var(--text); }
+
   /* ---------- reveal motion (once) ---------- */
   .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
   .reveal.in { opacity: 1; transform: none; }
@@ -364,7 +377,7 @@
           <p><span class="ko">생산, 검사, 세척, 포장까지 표준화된 공정으로 일정한 품질을 유지합니다. 국내 주요 병원에서 임상으로 검증되고 있습니다.</span><span class="en">Standardized processes covering production, QC, cleaning and packaging ensure consistent reliability. Clinically proven and trusted by top-tier hospitals in Korea.</span></p>
         </div></div>
         <div class="card reveal">
-          <div class="img photo"><img src="assets/img/frame_or_team_a.jpg" alt="Surgical team during an operation" loading="lazy"></div>
+          <div class="img photo"><img src="assets/img/card_handover.webp" alt="Handing an instrument to the surgeon" loading="lazy"></div>
           <div class="body">
           <h3><span class="ko">제품을 넘어선 서비스</span><span class="en">Service beyond product</span></h3>
           <p><span class="ko">수술실의 긴급함을 이해합니다. 빠른 대응, 유연한 물류, 즉각적인 기술 지원을 국내외 파트너에게 제공합니다.</span><span class="en">We understand the urgency of the operating room. Rapid-response systems, flexible logistics and immediate technical assistance for our partners.</span></p>
@@ -461,46 +474,35 @@
   </section>
 
   <!-- T6 Why GSSEM -->
-  <section class="why" id="why">
+  <section class="why has-bg" id="why">
+    <div class="bg-media" aria-hidden="true"><picture><source media="(max-width: 760px)" srcset="assets/img/bg_why_m.webp"><img src="assets/img/bg_why.webp" alt="" loading="lazy"></picture></div>
     <div class="container">
       <div class="sec-head reveal">
         <p class="eyebrow"><span class="ko">지셈을 선택하는 이유</span><span class="en">Why GSSEM</span></p>
         <h2><span class="ko">비교표에 적을 수 있는 여섯 가지</span><span class="en">Six things you can put in a comparison table</span></h2>
       </div>
       <div class="cards">
-        <div class="card reveal">
-          <div class="img photo"><img src="https://images.pexels.com/photos/10406128/pexels-photo-10406128.jpeg?auto=compress&cs=tinysrgb&w=900" alt="CNC milling machine cutting metal" loading="lazy" referrerpolicy="no-referrer"></div>
-          <div class="body">
+        <div class="card reveal"><div class="body">
           <h3><span class="ko">직접 가공하는 인하우스 CNC</span><span class="en">In-house CNC machining</span></h3>
           <p><span class="ko">설계부터 가공, 검사, 포장까지 사내에서 완결합니다. 외주 없는 일관된 품질과 짧은 납기.</span><span class="en">Design, machining, inspection and packaging all happen in-house. Consistent quality and short lead times without outsourcing.</span></p>
         </div></div>
-        <div class="card reveal">
-          <div class="img photo"><img src="https://images.pexels.com/photos/13949979/pexels-photo-13949979.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Laboratory microscope" loading="lazy" referrerpolicy="no-referrer"></div>
-          <div class="body">
+        <div class="card reveal"><div class="body">
           <h3><span class="ko">제조업 허가 기반 품질관리</span><span class="en">Licensed, controlled quality</span></h3>
           <p><span class="ko">의료기기 제조업 허가 제7388호. 원재료 입고부터 포장까지 생산 데이터를 기록해 로트를 추적합니다.</span><span class="en">Medical device manufacturing license No. 7388. Production data is recorded from raw material to packaging for lot traceability.</span></p>
         </div></div>
-        <div class="card reveal">
-          <div class="img photo"><img src="https://images.pexels.com/photos/8940820/pexels-photo-8940820.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Metal rods, raw material" loading="lazy" referrerpolicy="no-referrer"></div>
-          <div class="body">
+        <div class="card reveal"><div class="body">
           <h3><span class="ko">프리미엄 티타늄</span><span class="en">Premium titanium</span></h3>
           <p><span class="ko">미국 Perryman Company, Fort Wayne Metals에서 공급받는 의료용 티타늄만 사용합니다. ASTM 규격.</span><span class="en">Only medical-grade titanium from Perryman Company and Fort Wayne Metals (USA), compliant with ASTM standards.</span></p>
         </div></div>
-        <div class="card reveal">
-          <div class="img photo"><img src="assets/img/frame_driver_b.jpg" alt="Surgeon's hand picking a screw with the driver" loading="lazy"></div>
-          <div class="body">
+        <div class="card reveal"><div class="body">
           <h3>Perfect Pick-up &amp; Self-drilling</h3>
           <p><span class="ko">스크류와 드라이버 샤프트의 공차를 최소화해 수술 중 스크류가 샤프트에서 떨어지지 않습니다. Self-drilling 선단으로 사전 천공을 생략합니다.</span><span class="en">Tight screw-to-driver tolerance keeps the screw on the shaft during surgery. Self-drilling tips skip the pre-drilling step.</span></p>
         </div></div>
-        <div class="card reveal">
-          <div class="img photo"><img src="assets/img/frame_tray_a.jpg" alt="Color-coded plate and screw tray" loading="lazy"></div>
-          <div class="body">
+        <div class="card reveal"><div class="body">
           <h3><span class="ko">원스톱 포트폴리오</span><span class="en">One-stop portfolio</span></h3>
           <p><span class="ko">CMF, Neuro, 교정, GBR, 전용 기구까지 한 공급처에서 받습니다. 여러 공급사를 관리할 필요가 없습니다.</span><span class="en">CMF, neuro, orthodontic, GBR and instruments from a single source. No need to manage multiple suppliers.</span></p>
         </div></div>
-        <div class="card reveal">
-          <div class="img photo"><img src="assets/img/frame_or_team_b.jpg" alt="Surgical team at the operating table" loading="lazy"></div>
-          <div class="body">
+        <div class="card reveal"><div class="body">
           <h3><span class="ko">수술실 속도의 대응</span><span class="en">Operating-room speed</span></h3>
           <p><span class="ko">긴급 수술을 위한 출고, 유연한 물류, 기술 지원 즉시 응대. 해외 파트너에게는 낮은 MOQ로 시작할 수 있습니다.</span><span class="en">Urgent-case shipping, flexible logistics and immediate technical support. Overseas partners can start with a low MOQ.</span></p>
         </div></div>
@@ -570,7 +572,8 @@
   </section>
 
   <!-- T8 Certifications -->
-  <section class="certs" id="certifications">
+  <section class="certs has-bg" id="certifications">
+    <div class="bg-media" aria-hidden="true"><picture><source media="(max-width: 760px)" srcset="assets/img/bg_certs_m.webp"><img src="assets/img/bg_certs.webp" alt="" loading="lazy"></picture></div>
     <div class="container">
       <div class="sec-head reveal">
         <p class="eyebrow"><span class="ko">인증·허가</span><span class="en">Certifications &amp; licenses</span></p>
@@ -641,7 +644,8 @@
   </section>
 
   <!-- T10 Global & OEM -->
-  <section class="global" id="global">
+  <section class="global has-bg" id="global">
+    <div class="bg-media" aria-hidden="true"><picture><source media="(max-width: 760px)" srcset="assets/img/bg_global_m.webp"><img src="assets/img/bg_global.webp" alt="" loading="lazy"></picture></div>
     <div class="container">
       <div class="top">
         <div class="reveal">
@@ -659,21 +663,15 @@
         </div>
       </div>
       <div class="cards">
-        <div class="card reveal">
-          <div class="img photo"><img src="https://images.pexels.com/photos/7480233/pexels-photo-7480233.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Hand adjusting a CNC spindle" loading="lazy" referrerpolicy="no-referrer"></div>
-          <div class="body">
+        <div class="card reveal"><div class="body">
           <h3><span class="ko">진짜 제조사</span><span class="en">A true manufacturer</span></h3>
           <p><span class="ko">직접 설계하고 가공하고 검사하기 때문에 제품 일관성, 빠른 커스터마이징, 예측 가능한 납기, 엔지니어의 즉각적인 기술 지원을 받을 수 있습니다.</span><span class="en">Because we engineer, manufacture and inspect every product ourselves, distributors receive higher consistency, faster customization, predictable timelines and immediate engineering support.</span></p>
         </div></div>
-        <div class="card reveal">
-          <div class="img photo"><img src="https://images.pexels.com/photos/3735930/pexels-photo-3735930.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Stacked cargo containers at a port" loading="lazy" referrerpolicy="no-referrer"></div>
-          <div class="body">
+        <div class="card reveal"><div class="body">
           <h3><span class="ko">원스톱 유통 포트폴리오</span><span class="en">Complete portfolio for one-stop distribution</span></h3>
           <p><span class="ko">CMF(Orbital·Zygoma·Midface·Mandible·Reconstruction), Neuro, 치과·교정 고정 시스템을 한 번에. 여러 공급사를 관리하지 않아도 시장을 넓힐 수 있습니다.</span><span class="en">CMF (orbital, zygoma, midface, mandible, reconstruction), neuro and dental/orthodontic fixation in one line. Expand coverage without managing multiple suppliers.</span></p>
         </div></div>
-        <div class="card reveal">
-          <div class="img photo"><img src="https://images.pexels.com/photos/33175650/pexels-photo-33175650/free-photo-of-professional-handshake-in-business-meeting.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Handshake between business partners" loading="lazy" referrerpolicy="no-referrer"></div>
-          <div class="body">
+        <div class="card reveal"><div class="body">
           <h3><span class="ko">디스트리뷰터 지원</span><span class="en">Distributor support</span></h3>
           <p><span class="ko">초기 진입을 위한 낮은 MOQ, 즉시 응답하는 기술·물류 창구, 바로 쓸 수 있는 카탈로그와 제품 이미지, 인허가 문서 지원, 짧은 생산 리드타임.</span><span class="en">Flexible low MOQ for market entry, immediate technical and logistics communication, ready-to-use catalogs and product images, regulatory documentation support and fast production lead times.</span></p>
         </div></div>
